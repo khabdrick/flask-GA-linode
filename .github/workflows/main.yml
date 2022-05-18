@@ -1,12 +1,10 @@
-name: test_Django
+name: test_and_deploy_app
 on: [pull_request, push] # activates the workflow when there is a push or pull request in the repo
 jobs:
   test_project:
-    runs-on: ubuntu-latest # opera
+    runs-on: ubuntu-latest # operating system
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - run: pip install flake8
       - run: pip install -r requirements.txt
       - run: pytest . # run pytest test
-      - run: flake8 . # run flake8 test
