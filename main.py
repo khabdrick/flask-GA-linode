@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 app = Flask(__name__) #create an instance of the Flask class you just imported
 
 description = [
-  { 'name': 'Muhammed Ali', 'country': "Nigeria", "gender":"male"}
+  { 'name': 'Muhammed Ali Akaba', 'country': "Nigeria", "gender":"male"}
 ]
 
 @app.route('/')
