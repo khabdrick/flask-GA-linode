@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest # operating system
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install -r requirements.txt
+      - run: pytest . # run pytest test
 
       - name: Push to server
         uses: appleboy/ssh-action@master
@@ -13,6 +16,4 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: cd ${{ secrets.PROJECT_PATH }} && git pull
-      - uses: actions/setup-python@v2
-      - run: pip install -r requirements.txt
-      - run: pytest . # run pytest test
+
